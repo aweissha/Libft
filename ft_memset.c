@@ -6,7 +6,7 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/05 11:20:54 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/06 13:07:37 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/06 18:03:34 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,6 @@ void	*ft_memset(void *b, int c, size_t len)
 	return (b);
 }
 
-// #include <unistd.h>
-
 // int main(void)
 // {
 // 	char array[10];
@@ -40,8 +38,9 @@ void	*ft_memset(void *b, int c, size_t len)
 // 	{
 // 		write (1, &ft_memset(array, 'a', 10)[i], 1);
 // 		i++;
+// 	}
 // }
-//
+// //
 /* notes: The function taked void * as the data type of 
 the first argument, because it can work with an kind of pointer as input. 
 It then transforms the pointer to a unsigned char * pointer. 

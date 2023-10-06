@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/06 14:35:04 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/06 18:22:25 by aweissha         ###   ########.fr       */
+/*   Created: 2023/10/06 18:07:34 by aweissha          #+#    #+#             */
+/*   Updated: 2023/10/06 18:34:56 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char			*dest;
-	const unsigned char		*source;
-	size_t					i;
+	char			*dest;
+	const char		*source;
+	size_t			i;
 
-	dest = (unsigned char *)dst;
-	source = (const unsigned char *)src;
+	dest = (char *)dst;
+	source = (const char *)src;
 	i = 0;
-	while (i < n)
+	while (i < len)
 	{
-		dest[i] = source[i];
+		dest[i] = source[i]
 		i++;
 	}
 	return (dst);
@@ -38,11 +38,3 @@ int main(void)
     write(1, dst, 6);
     return (0);
 }
-/*
-The restrict keyword tells the compiler that for the scope of that pointer,
-no other pointer (with the restrict qualifier) will access the same data. 
-Usually used in pointer declarations in fuctions.
-This allows the compiler to optimize code more aggressively because it 
-can assume that modifications through that pointer won't be affected 
-by any other pointers.
-*/
