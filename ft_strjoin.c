@@ -6,7 +6,7 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 18:15:11 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/09 18:45:58 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/09 19:17:05 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,5 @@ char	*ft_strjoin(char const *s1, char const *s2)
 // {
 // 	char const s1[] = "hello";
 // 	char const s2[] = "world";
-
 // 	printf("%s\n", ft_strjoin(s1, s2));
 // }
