@@ -1,38 +1,32 @@
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	size_t	i;
 	size_t	j;
-	size_t	len;
+	char	*str;
 
-	len = 0;
-	while (src[len])
+	str = 0;
+	if (s1 != 0 && set != 0)
 	{
-		len++;
+		i = 0;
+		j = ft_strlen(s1);
+		while (s1[i] && ft_strchr(set, s1[i]))
+			i++;
+		while (s1[j - 1] && ft_strchr(set, s1[j - 1]) && j > i)
+			j--;
+		str = (char *)malloc(sizeof(char) * (j - i + 1));
+		if (str)
+			ft_strlcpy(str, &s1[i], j - i + 1);
 	}
-
-	i = 0;
-	j = 0;
-	while (dst[i] && i < size)
-		i++;
-	while (src[j] && (i + j + 1) < size)
-	{
-		dst[i + j] = src[j];
-		j++;
-	}
-	if (i < size)
-		dst[i + j] = '\0';
-	return (i + len);
+	return (str);
 }
 
 #include <stdio.h>
-#include <string.h>
 int main(void)
 {
-	char src[] = "hello";
-	char dst[] = "bla";
+	char s1[] = "";
+	char set[] = "xyz 	";
+	printf("%s\n", ft_strtrim(s1, set));
 
-	ft_strlcat(dst, src, 6);
-	printf("%s", dst);
 }
