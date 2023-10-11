@@ -6,7 +6,7 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 11:08:53 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/10 13:04:15 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/11 17:45:25 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 // #include <stdio.h>
 // int main(void)
 // {
-// 	char s1[] = "xxzxxzy  ";
+// 	char s1[] = "xxzdfhdxxzy  ";
 // 	char set[] = "xyz 	";
 // 	printf("%s\n", ft_strtrim(s1, set));
 // }
