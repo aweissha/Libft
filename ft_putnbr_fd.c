@@ -1,47 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/08 09:30:20 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/11 15:55:38 by aweissha         ###   ########.fr       */
+/*   Created: 2023/10/11 14:20:37 by aweissha          #+#    #+#             */
+/*   Updated: 2023/10/11 14:57:27 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
+void	ft_putnbr_fd(int n, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	if (dstsize == 0)
+	if (n == -2147483648)
 	{
-		while (src[i] != '\0')
-			i++;
-		return (i);
+		ft_putstr_fd("-2", fd);
+		n = 147483648;
 	}
-	while (src[i] != '\0' && i < dstsize - 1)
+	if (n < 0)
 	{
-		dst[i] = src[i];
-		i++;
+		ft_putchar_fd('-', fd);
+		n = n * (-1);
 	}
-	if (i < dstsize)
-		dst[i] = '\0';
-	while (src[i] != '\0')
-		i++;
-	return (i);
+	if (n >= 10)
+	{
+		ft_putnbr_fd(n / 10, fd);
+		ft_putchar_fd((n % 10) + '0', fd);
+	}
+	else
+		ft_putchar_fd((n % 10) + '0', fd);
 }
-
-// #include <stdio.h>
-// #include <string.h>
 // int main(void)
 // {
-// 	char src[] = "hello";
-// 	char dst[] = "blablabla";
+// 	int n;
 
-// 	ft_strlcpy(dst, src, 10);
-// 	printf("%s", dst);
+// 	n = 123;
+// 	ft_putnbr_fd(n, 1);
 // }

@@ -6,7 +6,7 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:04:22 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/10 16:11:55 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/11 11:45:49 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,17 @@ int	strlength(char const *s, unsigned int index, char c)
 	return (counter);
 }
 
+char	**ft_free(char **array, int index)
+{
+	while (index >= 0)
+	{
+		free(array[index]);
+		index--;
+	}
+	free(array);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char			**array;
@@ -48,7 +59,8 @@ char	**ft_split(char const *s, char c)
 	unsigned int	j;
 	unsigned int	strlen;
 
-	if (!(array = malloc(sizeof(char *) * (count_words(s, c) + 1))))
+	array = malloc(sizeof(char *) * (count_words(s, c) + 1));
+	if (!(array))
 		return (NULL);
 	i = 0;
 	j = 0;
@@ -58,8 +70,9 @@ char	**ft_split(char const *s, char c)
 		if (((s[i] == c || s[i] == '\0') && s[i - 1] != c))
 		{
 			strlen = strlength(s, i - 1, c);
-			if (!(array[j] = malloc(strlen + 1)))
-				return (NULL);
+			array[j] = malloc(strlen + 1);
+			if (!(array[j]))
+				return (ft_free(array, j));
 			ft_strlcpy(array[j++], &s[i - strlen], (strlen + 1));
 		}
 	}
@@ -70,7 +83,7 @@ char	**ft_split(char const *s, char c)
 // #include <stdio.h>
 // int main(void)
 // {
-// 	char str[] = "";
+// 	char str[] = "zzzhellozzmyznamezziszzalexzz";
 // 	char **array = ft_split(str, 'z');
-// 	printf("%s", array[0]);
+// 	printf("%s", array[4]);
 // }
