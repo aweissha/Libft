@@ -43,22 +43,16 @@ CFLAGS = -Wall -Wextra -Werror
 
 all: $(NAME)
 
-$(NAME): main.o function1.o function2.o funtion3.o
-		$(CC) $(CFLAGS) function1.o function2.o function3.o main.o -o $(OBJ)
+$(NAME): $(OBJS)
+		ar rcs $(NAME) $(OBJS)
 
-function1.o :function1.c
-		$(CC) $(CFLAGS) -c function1.c
-function2.o :function2.c
-		$(CC) $(CFLAGS) -c function2.c
-function3.o :function3.c
-		$(CC) $(CFLAGS) -c function3.c
-main.o :main.c
-		$(CC) $(CFLAGS) -c main.c
-exec:
-		./func
+%.o: %.c
+		$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-		rm -rf func
-		rm -rf *.o
+		rm -f $(OBJS)
 
+fclean: clean
+		rm -f $(NAME)
 
+re: fclean all

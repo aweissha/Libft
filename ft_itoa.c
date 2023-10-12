@@ -6,13 +6,13 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:48:00 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/11 12:49:45 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/12 12:47:16 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	digits(int n)
+static int	digits(int n)
 {
 	unsigned int	counter;
 
