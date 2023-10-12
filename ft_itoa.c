@@ -6,7 +6,7 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/11 11:48:00 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/12 12:47:16 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:40:37 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,31 @@ static int	digits(int n)
 	return (counter);
 }
 
+static void	fill_number(char *number, unsigned int nbrlen, int n)
+{
+	number[nbrlen] = '\0';
+	if (n == -2147483648)
+	{
+		number[0] = '-';
+		number[1] = '2';
+		n = 147483648;
+	}
+	else if (n < 0)
+	{
+		number[0] = '-';
+		n = n * (-1);
+	}
+	else if (n == 0)
+		number[0] = 48;
+	nbrlen--;
+	while (n != 0)
+	{
+		number[nbrlen] = (n % 10) + 48;
+		n = n / 10;
+		nbrlen--;
+	}
+}
+
 char	*ft_itoa(int n)
 {
 	char			*number;
@@ -36,21 +61,9 @@ char	*ft_itoa(int n)
 	if (n < 0)
 		nbrlen++;
 	number = malloc(nbrlen + 1);
-	number[nbrlen] = '\0';
-	if (n < 0)
-	{
-		number[0] = '-';
-		n = n * (-1);
-	}
-	nbrlen--;
-	if (n == 0)
-		number[nbrlen] = 48;
-	while (n != 0)
-	{
-		number[nbrlen] = (n % 10) + 48;
-		n = n / 10;
-		nbrlen--;
-	}
+	if (number == NULL)
+		return (NULL);
+	fill_number(number, nbrlen, n);
 	return (number);
 }
 

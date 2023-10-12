@@ -6,7 +6,7 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/09 17:18:38 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/09 17:55:30 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/12 16:10:40 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	char			*substr;
 	unsigned int	i;
 
+	if (start >= (unsigned int)ft_strlen(s))
+		len = 0;
 	substr = malloc(len + 1);
 	i = 0;
 	if (substr == NULL)

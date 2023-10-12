@@ -6,7 +6,7 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:35:04 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/08 11:33:15 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:07:59 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 	dest = (unsigned char *)dst;
 	source = (const unsigned char *)src;
 	i = 0;
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	while (i < n)
 	{
 		dest[i] = source[i];

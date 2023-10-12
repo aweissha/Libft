@@ -6,7 +6,7 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 18:07:34 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/08 11:33:28 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/12 15:19:10 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	dest = (unsigned char *)dst;
 	source = (const unsigned char *)src;
 	i = 0;
+	if (dst == NULL && src == NULL)
+		return (NULL);
 	if (dest < source)
 	{
 		while (i < len)
@@ -32,11 +34,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	else
 	{
 		i = len;
-		while (i > 0)
-		{
-			i--;
+		while (i-- > 0)
 			dest[i] = source[i];
-		}
 	}
 	return (dst);
 }
