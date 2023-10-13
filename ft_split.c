@@ -6,7 +6,7 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/10 13:04:22 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/12 12:44:14 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/13 15:48:57 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char	**ft_split(char const *s, char c)
 	char			**array;
 	unsigned int	i;
 	unsigned int	j;
-	unsigned int	strlen;
+	unsigned int	wordlen;
 
 	array = malloc(sizeof(char *) * (count_words(s, c) + 1));
 	if (!(array))
@@ -69,11 +69,11 @@ char	**ft_split(char const *s, char c)
 		i++;
 		if (((s[i] == c || s[i] == '\0') && s[i - 1] != c))
 		{
-			strlen = strlength(s, i - 1, c);
-			array[j] = malloc(strlen + 1);
+			wordlen = strlength(s, i - 1, c);
+			array[j] = malloc(wordlen + 1);
 			if (!(array[j]))
 				return (ft_free(array, j));
-			ft_strlcpy(array[j++], &s[i - strlen], (strlen + 1));
+			ft_strlcpy(array[j++], &s[i - wordlen], (wordlen + 1));
 		}
 	}
 	array[j] = NULL;

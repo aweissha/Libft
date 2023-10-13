@@ -6,7 +6,7 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:06:18 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/13 10:57:18 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/13 11:09:27 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strrchr(const char *s, int c)
 	last = ft_strlen(s);
 	while (last >= 0)
 	{
-		if (s[last] == c)
+		if (s[last] == (char)c)
 			return ((char *)&s[last]);
 		last--;
 	}
