@@ -6,13 +6,13 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/06 14:35:04 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/12 15:07:59 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:53:23 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	unsigned char			*dest;
 	const unsigned char		*source;

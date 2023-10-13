@@ -6,7 +6,7 @@
 /*   By: aweissha <aweissha@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/08 18:06:18 by aweissha          #+#    #+#             */
-/*   Updated: 2023/10/12 19:13:33 by aweissha         ###   ########.fr       */
+/*   Updated: 2023/10/13 10:57:18 by aweissha         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,15 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	size_t	last;
+	int	last;
 
 	last = ft_strlen(s);
-	if (last == 0)
-		return (NULL);
-	while (last > 0)
+	while (last >= 0)
 	{
 		if (s[last] == c)
 			return ((char *)&s[last]);
 		last--;
 	}
-	if (s[last] == c)
-		return ((char *)&s[last]);
 	return (NULL);
 }
 
@@ -34,6 +30,6 @@ char	*ft_strrchr(const char *s, int c)
 // #include <string.h>
 // int	main(void)
 // {
-// 	char str[] = "hello world";
-// 	printf("%li", (ft_strrchr(str, '\0') - ft_strrchr(str, 'w')));
+// 	char str[] = "teste";
+// 	printf("%p", ft_strrchr(str, 'e'));
 // }
