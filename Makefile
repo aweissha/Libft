@@ -33,26 +33,44 @@ SRCS =			ft_atoi.c \
 				ft_strtrim.c \
 				ft_substr.c \
 				ft_tolower.c \
-				ft_toupper.c \
+				ft_toupper.c
+
+BONUS =			ft_lstadd_back.c \
+				ft_lstadd_front.c \
+				ft_lstclear.c \
+				ft_lstdelone.c \
+				ft_lstiter.c \
+				ft_lstlast.c \
+				ft_lstmap.c \
+				ft_lstnew.c \
+				ft_lstsize.c
 
 OBJS = $(SRCS:.c=.o)
+BONUS_OBJS = $(BONUS:.c=.o)
 
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+
+%.o: %.c
+		$(CC) $(CFLAGS) -c $< -o $@
 
 all: $(NAME)
 
 $(NAME): $(OBJS)
 		ar rcs $(NAME) $(OBJS)
 
-%.o: %.c
-		$(CC) $(CFLAGS) -c $< -o $@
+bonus: $(OBJS) $(BONUS_OBJS)
+		ar rcs $(NAME) $(OBJS) $(BONUS_OBJS)
+
+
 
 clean:
-		rm -f $(OBJS)
+		rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
 		rm -f $(NAME)
 
 re: fclean all
+
+.PHONY:			all clean fclean re bonus
